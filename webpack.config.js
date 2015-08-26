@@ -28,9 +28,10 @@ module.exports = {
         include: path.join(__dirname, 'src')
       },
       {
-        test: /\.scss$/,
-        loader: 'style!css!sass'
-      }
+        test: /\.css/,
+        loader: 'style-loader!css-loader'
+      },
+      { test: /\.(png|jpg|jpeg|gif|woff)$/, loader: 'url-loader?limit=8192' },
     ]
   }
 };

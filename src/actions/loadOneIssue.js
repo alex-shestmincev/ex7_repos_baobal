@@ -5,6 +5,9 @@ export default function (url) {
   fetch(url).then(
     (response) => response.json()
   ).then(
-    (currentIssue) => {tree.set('currentIssue', currentIssue);}
+    (currentIssue) => {
+      tree.set('currentIssue', currentIssue);
+      tree.set('currentPage', 'issue');
+    }
   );
 }

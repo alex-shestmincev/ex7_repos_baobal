@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import RepositoryInput from '../../components/RepositoryInput';
-import ListIssues from '../../components/ListIssues';
 
-export default class ListView extends Component {
+export default class IndexView extends Component {
 
   render() {
     return (
       <div>
         <RepositoryInput />
-        <ListIssues />
       </div>
     )
   }

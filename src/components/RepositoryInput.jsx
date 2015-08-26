@@ -6,7 +6,8 @@ import loadIssues from '../actions/loadIssues';
 
 @branch({
   cursors: {
-    repository: ['repository'],
+    githubUser: ['githubUser'],
+    githubBranch: ['githubBranch'],
   },
 })
 export default class RepositoryInput extends Component {
@@ -15,20 +16,23 @@ export default class RepositoryInput extends Component {
   }
 
   handleInput(e) {
-    this.context.cursors.repository.set(e.target.value);
+    var value = e.target.value.split("/");
+    if (value.length === 2){
+      this.context.cursors.githubUser.set(value[0]);
+      this.context.cursors.githubBranch.set(value[1]);
+    }
   }
 
   handleSubmit(e) {
-    loadIssues(this.props.repository);
+    loadIssues(this.props.githubUser, this.props.githubBranch);
 
     e.preventDefault();
   }
 
   render() {
-    console.log(this.context);
     return (
       <form onSubmit={::this.handleSubmit}>
-        <input type="text" value={this.props.repository} onChange={::this.handleInput}/>
+        <input type="text" value={this.props.githubUser + '/' + this.props.githubBranch} onChange={::this.handleInput}/>
         <input type="submit" value="Submit" />
       </form>
     );

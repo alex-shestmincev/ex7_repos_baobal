@@ -17,7 +17,7 @@ export default class CurrentIssue extends Component {
     backToList();
   }
 
-  render() { console.log(this.props.currentIssue)
+  render() {
 
     return (
       <div>

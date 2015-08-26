@@ -44,6 +44,8 @@
     "baobab": "^1.1.2",
     "baobab-react": "^0.1.1",
     "isomorphic-fetch": "^2.1.1",
-    "react": "^0.13.0"
+    "react": "^0.13.0",
+    "react-dom": "^0.14.0-beta3",
+    "reactive-router": "^0.4.1"
   }
 }

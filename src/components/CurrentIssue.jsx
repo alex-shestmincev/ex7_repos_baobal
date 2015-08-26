@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {branch} from 'baobab-react/decorators';
+import backToList from '../actions/backToList';
 
 
 @branch({
@@ -12,12 +13,22 @@ export default class CurrentIssue extends Component {
     currentIssue: React.PropTypes.object,
   }
 
-  render() {
+  backToList(){
+    backToList();
+  }
+
+  render() { console.log(this.props.currentIssue)
 
     return (
-      <p>
-        {this.props.currentIssue.body}
-      </p>
+      <div>
+        <button type="button" onClick={::this.backToList}> Back </button>
+        <h1>
+          {this.props.currentIssue.title}
+        </h1>
+        <p>
+          {this.props.currentIssue.body}
+        </p>
+      </div>
     );
   }
 }
